@@ -11,7 +11,7 @@ In order to allow you to customize the client and add features by yourself, our 
 
 **Build instructions:**
 - Put Sencha Touch 2.4 in the touch folder (not included)
-- Run 'sencha app build package' in order to compile / minimize
+- Run 'sencha app build package' in order to compile / minify the application (so that it can be packaged with Phonegap)
 
 **Revision history:**
 
