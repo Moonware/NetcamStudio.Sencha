@@ -3,7 +3,7 @@ Netcam Studio Mobile (Sencha Version)
 
 **Introduction:**
 
-Smartphone / Tablet Client for [Netcam Studio](http://www.netcamstudio.com) which is available in Google Play and App Store.
+Smartphone / Tablet Client for [Netcam Studio](http://www.netcamstudio.com/) which is available in Google Play and App Store.
 
 For publishing it is wrapped using PhoneGap however it doesn't use any of the device specific functionality and don't need any special permission apart of Internet access.
 
