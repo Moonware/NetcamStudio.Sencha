@@ -45,7 +45,7 @@ Ext.application({
         Ext.fly('appLoadingIndicator').destroy();
 
         // Initialize the main view
-        //Ext.Viewport.add(Ext.create('netcam.view.Main'));
+        // Ext.Viewport.add(Ext.create('netcam.view.Main'));
 
         initialize();
 
@@ -53,7 +53,7 @@ Ext.application({
         Ext.Viewport.add(Ext.create('netcam.view.Login'));
 
         <!-- Unless using the CDN hosted version, update the URL to the Flash SWF -->
-        videojs.options.flash.swf = "resources/videojs/video-js.swf";
+        <!-- <videojs.options.flash.swf = "resources/videojs/video-js.swf"; -->
 
         soundManager.setup({
             url: 'resources/soundmanager/swf/',
@@ -68,6 +68,7 @@ Ext.application({
                 // Ready to use; soundManager.createSound() etc. can now be called.
             }
         });
+
     },
 
     onUpdated: function() {

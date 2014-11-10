@@ -284,6 +284,7 @@ Ext.define('netcam.controller.CameraView', {
 
             ptzPanel.setVisibility(hasPTZ);
 
+
             if (cObject.data.Status.IsRecording)
             {
                 Ext.getCmp('cameraViewRecord').setUi('decline');

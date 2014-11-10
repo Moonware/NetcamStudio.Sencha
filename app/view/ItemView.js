@@ -2,7 +2,8 @@ Ext.define('netcam.view.ItemView', {
     extend: 'Ext.Container',
     requires: [
         'Ext.device.Notification',
-        'Ext.field.Select'
+        'Ext.field.Select',
+        'Ext.Video'
     ],
     name: 'itemView',
     id: 'itemView',
@@ -16,19 +17,19 @@ Ext.define('netcam.view.ItemView', {
             id:  'itemViewTitle',
             title: '',
             items: [
-            {
-                xtype: 'button',
-                ui: 'back',
-                text: 'Back',
-                action: 'itemBack'
-            }
+                {
+                    xtype: 'button',
+                    ui: 'back',
+                    text: 'Back',
+                    action: 'itemBack'
+                }
             ]
             },
             {
                 xtype: 'panel',
-                cls: 'ViewPanel',
-                name: 'itemViewVideoPanel',
-                id: 'itemViewVideoPanel'
+                name: 'tempPanelForPositioningVideoBefore',
+                id: 'tempPanel',
+                html: '<div></div>'
             }
         ],
         padding: '0 5 0 5',
@@ -46,6 +47,12 @@ Ext.define('netcam.view.ItemView', {
         },
         tpl: Ext.XTemplate([
             '<tpl for=".">',
+
+
+            //'<video id="liveVideo" controls preload="none" width="{videoWidth}" height="{videoHeight}" poster="{previewUrl}">',
+            //'<source src="{fullUrl}" type="video/mp4" />',
+            //'</video>',
+
             '<div class="checkResults">',
             '<div class="infoTitle">Item Entry</div>',
             '<div class="alert {[itemTypeIdToStr(values.itemType)]}"><div class="alert-text-bold">{[itemTypeIdToStr(values.itemType)]}</div>{[dateToStr(values.timeStamp)]}</div>',

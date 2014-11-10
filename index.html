@@ -2,12 +2,7 @@
 <html manifest="" lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <title>Netcam Studio Mobile</title>
-
-    <!--
-    <link href="videojs/video-js.css" rel="stylesheet" type="text/css">
-    -->
-
+    <title>netcam</title>
     <style type="text/css">
          /**
          * Example of an initial loading indicator.
@@ -16,7 +11,7 @@
          */
         html, body {
             height: 100%;
-            background-color: #bbbbbb
+            background-color: #1985D0
         }
 
         #appLoadingIndicator {
@@ -35,24 +30,21 @@
         #appLoadingIndicator > * {
             background-color: #FFFFFF;
             display: inline-block;
-            height: 20px;
-            -webkit-border-radius: 10px;
-            margin: 0 10px;
-            width: 20px;
+            height: 30px;
+            -webkit-border-radius: 15px;
+            margin: 0 5px;
+            width: 30px;
             opacity: 0.8;
         }
 
         @-webkit-keyframes appLoadingIndicator{
-            0%
-            {
+            0% {
                 opacity: 0.8
             }
-            50%
-            {
+            50% {
                 opacity: 0
             }
-            100%
-            {
+            100% {
                 opacity: 0.8
             }
         }
@@ -66,17 +58,5 @@
         <div></div>
         <div></div>
     </div>
-
-    <!-- PhoneGap Header Fix -->
-    <script>
-        function onDeviceReady() {
-            if (parseFloat(window.device.version) === 7.0) {
-                document.body.style.marginTop = "20px";
-            }
-        }
-
-        document.addEventListener('deviceready', onDeviceReady, false);
-    </script>
-
 </body>
 </html>

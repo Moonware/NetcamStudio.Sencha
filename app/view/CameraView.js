@@ -79,15 +79,6 @@ Ext.define('netcam.view.CameraView', {
                         name: 'cameraViewAudio',
                         action:'audio'
                     }
-                    /*,
-                    {
-                        xtype: 'spacer'
-                    },{
-                        xtype: 'title',
-                        id: 'cameraViewTitle',
-                        title: ''
-                    }
-                    */
                 ],
                 layout: {
                     pack:'start',
@@ -101,7 +92,7 @@ Ext.define('netcam.view.CameraView', {
                 id: 'cameraViewLivePanel',
                 html: '<div id="cDiv"><img id="cameraImg1" class="cameraImg" alt="#1" /><img id="cameraImg2" class="cameraImg" alt="#2" /></div>'
             },
-            {
+            /*{
                 xtype: 'fieldset',
                 name: 'cameraForm',
                 defaults: {labelWidth: '45%'},
@@ -117,23 +108,25 @@ Ext.define('netcam.view.CameraView', {
                             }
                         }
                     },
-                    {
-                        xtype: 'panel',
-                        cls: 'ptzPanel',
-                        name: 'cameraViewPTZPanel',
-                        id: 'cameraViewPTZPanel',
-                        visibility: 'hidden',
-                        html:
-                            '<div class="ptzLine"><div class="ptzDiv"><button class="x-button x-button-action x-button-ptz" onclick="javascript:ptzControl(\'ZoomOut\');"><span class="x-button-icon x-shown iconPTZZoomOut" id="btnPtzZoomOut"></span></button></div><div class="ptzDiv"></div><div class="ptzDiv"><button class="x-button x-button-action x-button-ptz" onclick="javascript:ptzControl(\'ZoomIn\');"><span class="x-button-icon x-shown iconPTZZoomIn" id="btnPtzZoomIn"></span></button></div></div>' +
-                            '<div class="ptzLine"><div class="ptzDiv clear"></div><div class="ptzDiv"><button class="x-button x-button-ptz" onclick="javascript:ptzControl(\'Up\');"><span class="x-button-icon x-shown iconPTZUp" id="btnPtzUp"></span></button></div><div class="ptzDiv"></div></div>' +
-                            '<div class="ptzLine"><div class="ptzDiv clear"><button class="x-button x-button-ptz" onclick="javascript:ptzControl(\'Left\');"><span class="x-button-icon x-shown iconPTZLeft" id="btnPtzLeft"></span></div><div class="ptzDiv"></div><div class="ptzDiv"><button class="x-button x-button-ptz" onclick="javascript:ptzControl(\'Right\');"><span class="x-button-icon x-shown iconPTZRight" id="btnPtzRight"></span></div></div>' +
-                            '<div class="ptzLine"><div class="ptzDiv clear"></div><div class="ptzDiv"><button class="x-button x-button-ptz" onclick="javascript:ptzControl(\'Down\');"><span class="x-button-icon x-shown iconPTZDown" id="btnPtzDown"></span></div><div class="ptzDiv"></div></div>'
-                    },
-                    {
-                        xtype: 'panel',
-                        cls: 'clear'
-                    }
+
+
                 ]
+            },*/
+            {
+                xtype: 'panel',
+                cls: 'ptzPanel',
+                name: 'cameraViewPTZPanel',
+                id: 'cameraViewPTZPanel',
+                visibility: 'hidden',
+                html:
+                    '<div class="ptzLine"><div class="ptzDiv"><button class="x-button x-button-action x-button-ptz" onclick="javascript:ptzControl(\'ZoomOut\');"><span class="x-button-icon x-shown iconPTZZoomOut" id="btnPtzZoomOut"></span></button></div><div class="ptzDiv"></div><div class="ptzDiv"><button class="x-button x-button-action x-button-ptz" onclick="javascript:ptzControl(\'ZoomIn\');"><span class="x-button-icon x-shown iconPTZZoomIn" id="btnPtzZoomIn"></span></button></div></div>' +
+                    '<div class="ptzLine"><div class="ptzDiv clear"></div><div class="ptzDiv"><button class="x-button x-button-ptz" onclick="javascript:ptzControl(\'Up\');"><span class="x-button-icon x-shown iconPTZUp" id="btnPtzUp"></span></button></div><div class="ptzDiv"></div></div>' +
+                    '<div class="ptzLine"><div class="ptzDiv clear"><button class="x-button x-button-ptz" onclick="javascript:ptzControl(\'Left\');"><span class="x-button-icon x-shown iconPTZLeft" id="btnPtzLeft"></span></div><div class="ptzDiv"></div><div class="ptzDiv"><button class="x-button x-button-ptz" onclick="javascript:ptzControl(\'Right\');"><span class="x-button-icon x-shown iconPTZRight" id="btnPtzRight"></span></div></div>' +
+                    '<div class="ptzLine"><div class="ptzDiv clear"></div><div class="ptzDiv"><button class="x-button x-button-ptz" onclick="javascript:ptzControl(\'Down\');"><span class="x-button-icon x-shown iconPTZDown" id="btnPtzDown"></span></div><div class="ptzDiv"></div></div>'
+            },
+            {
+                xtype: 'panel',
+                cls: 'clear'
             },
             {
                 id: 'cameraViewLabel',

@@ -58,7 +58,7 @@ Ext.define('netcam.view.About', {
     },
     show: function() {
         this.callParent();
-        this.setData({ version: '2.6.5' });
+        this.setData({ version: '2.7.0' });
     }
 
 });

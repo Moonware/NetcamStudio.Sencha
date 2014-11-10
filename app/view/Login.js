@@ -20,12 +20,6 @@ Ext.define('netcam.view.Login', {
 
                 this.fireEvent('activated', this);
             }
-            /*,
-            deactivate : function(newScreen, parent, oldScreen)
-            {
-                console.log('Login View deactivated.');
-            }
-            */
         },
         items: [
             {

@@ -2,7 +2,7 @@
     /**
      * The application's namespace, used by Sencha Command to generate classes
      */
-    "name": "Netcam",
+    "name": "netcam",
 
     /**
      * The file path to this application's front HTML document, relative to this app.json file
@@ -51,37 +51,25 @@
             "path": "app.js",
             "bundle": true,  /* Indicates that all class dependencies are concatenated into this file when build */
             "update": "delta"
-        }
-        ,
+        },
         {
             "path": "common.js",
+            "bundle": false,
             "update": "full"
         },
         {
-            "path": "jquery-1.9.1.min.js",
+            "path": "libs/jquery-1.9.1.min.js",
             "update": "full"
-        }
-        ,
+        },
         {
-            "path": "moment.min.js",
+            "path": "libs/moment.min.js",
             "update": "full"
-        }
-        ,
-        {
-            "path": "resources/videojs/video.js",
-            "update": "full"
-        }
-        ,
+        },
         {
             "path": "resources/soundmanager/script/soundmanager2-nodebug-jsmin.js",
             "update": "full"
         }
-        /*,
-        {
-            "path": "soundmanager/script/mp3-player-button.js",
-            "update": "full"
-        }
-        */
+
     ],
 
     /**
@@ -106,29 +94,10 @@
             "update": "delta"
         }
         ,
-        /*
-        {
-            "path": "resources/css/app.css",
-            "platform": ["chrome", "safari", "ios", "ios-classic", "android", "firefox"],
-            "Theme": "cupertino",
-            "update": "delta"
-        }
-        ,*/
         {
             "path": "resources/css/moonware.css",
             "update": "full"
-        },
-        {
-            "path": "resources/videojs/video-js.css",
-            "update": "full"
         }
-        /*
-        ,
-        {
-            "path": "resources/soundmanager/css/mp3-player-button.css",
-            "update": "full"
-        }
-        */
     ],
 
     /**
@@ -185,5 +154,16 @@
      * Uniquely generated id for this application, used as prefix for localStorage keys.
      * Normally you should never change this value.
      */
-    "id": "bc7ab81f-25d3-43ae-b51a-2750c4503c0f"
+    "id": "1f8d1f5f-6a36-40a9-9bdb-e88a4138e9a7",
+    "builds": {
+        "native": {
+            "packager": "cordova",
+            "cordova" : {
+                "config": {
+                    "platforms": "android",
+                    "id": "com.moonware.netcamstudio"
+            	}
+            }
+        }
+    }
 }

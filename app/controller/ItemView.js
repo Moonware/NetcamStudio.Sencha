@@ -21,23 +21,10 @@ Ext.define('netcam.controller.ItemView', {
         }
     },
     back: function() {
-        //Ext.Viewport.animateActiveItem(activeView, {type: 'slide', direction: 'right'});
         Ext.Viewport.animateActiveItem(Ext.getCmp('mainPanel'), {type: 'slide', direction: 'right'});
     },
     onViewActivate: function()
     {
-        //var sObject =  Ext.getStore('SettingsStore').getAt(0);
-        var iObject =  Ext.getStore('ItemsStore').getAt(currentItemIndex);
-
-        if (iObject != undefined)
-        {
-            var cItem = iObject.data;
-
-            //Ext.getCmp('itemViewTitle').setTitle('#' + cItem.Id );
-            //Ext.getCmp('itemViewTitle').setTitle(dateToStr(cItem.TimeStamp) + ' -  #' + cItem.SourceId);
-
-        }
-
         this.renderScreen();
     },
     onViewDeactivate: function()
@@ -46,8 +33,8 @@ Ext.define('netcam.controller.ItemView', {
     },
     renderScreen: function()
     {
-        try {
-
+        try 
+        {
             var currentSettings =  Ext.getStore('SettingsStore').getAt(0);
 
             var iObject =  Ext.getStore('ItemsStore').getAt(currentItemIndex);
@@ -60,17 +47,6 @@ Ext.define('netcam.controller.ItemView', {
                 var fullUrl = 'http://' + currentSettings.data.serverHost + ':' + currentSettings.data.serverPort + '/Library/' + iItem.Id + '?authToken=' + currentSettings.data.sessionToken;
 
                 console.log('Video URL >> ' + fullUrl);
-
-                iView = Ext.getCmp('itemView');
-                iView.setData({
-                    id: iItem.Id,
-                    timeStamp: iItem.TimeStamp,
-                    fileName: iItem.Filename,
-                    itemType: iItem.ItemType,
-                    duration: (iItem.Duration / 1000).toFixed(1) + 's',
-                    previewUrl : previewUrl,
-                    fullUrl : fullUrl
-                });
 
                 var srcWidth = 640;
                 var srcHeight = 480;
@@ -98,21 +74,64 @@ Ext.define('netcam.controller.ItemView', {
                     cHeight = sHeight * (srcWidth / sWidth);
                 }
 
-                Ext.getCmp('itemViewVideoPanel').setWidth(srcWidth);
-                Ext.getCmp('itemViewVideoPanel').setHeight(cHeight);
+                iView = Ext.getCmp('itemView');
 
-                var htmlContent = '<video id="liveVideo" class="video-js vjs-default-skin" controls preload="none" width="' + srcWidth + '" height="' + cHeight + '"';
-                htmlContent += 'poster="' + previewUrl + '"';
-                htmlContent += 'data-setup="{}">';
-                htmlContent += '<source src="' + fullUrl + '" type="video/mp4" />';
-                //htmlContent += '<source src="http://video-js.zencoder.com/oceans-clip.webm" type="video/webm" />';
-                //htmlContent += '<source src="http://video-js.zencoder.com/oceans-clip.ogv" type="video/ogg" />';
-                htmlContent += '</video>';
+                //Ext.getCmp('itemViewVideoPanel').setWidth(srcWidth);
+                //Ext.getCmp('itemViewVideoPanel').setHeight(cHeight);
 
-                Ext.getCmp('itemViewVideoPanel').setHtml(htmlContent);
+                //var htmlContent = '<video id="liveVideo" class="video-js vjs-default-skin" controls preload="none" width="' + srcWidth + '" height="' + cHeight + '"';
+                //htmlContent += 'poster="' + previewUrl + '"';
+                //htmlContent += 'data-setup="{}">';
+                //htmlContent += '<source src="' + fullUrl + '" type="video/mp4" />';
+                //htmlContent += '</video>';
+
+                //Ext.getCmp('itemViewVideoPanel').setHtml(htmlContent);
+
+
+                var videoObject = Ext.getCmp('itemViewVideoObject');
+
+                if (videoObject != undefined)
+                {
+                    iView.remove(videoObject);
+                    videoObject.destroy();
+                }
+
+                var videoPlayer = Ext.create('Ext.Video',
+                {
+                    xtype: 'video',
+                    cls: 'ViewPanel',
+                    id: 'itemViewVideoObject',
+                    loop: false,
+                    enableControls: true,
+                    preload: true
+                });
+
+                videoPlayer.setWidth(srcWidth);
+                videoPlayer.setHeight(cHeight);
+
+                videoPlayer.setUrl(fullUrl);
+                videoPlayer.setPosterUrl(previewUrl);
+
+                iView.insert(0, videoPlayer);
+
+                iView.setData({
+                    id: iItem.Id,
+                    timeStamp: iItem.TimeStamp,
+                    fileName: iItem.Filename,
+                    itemType: iItem.ItemType,
+                    duration: (iItem.Duration / 1000).toFixed(1) + 's'
+
+                    //videoWidth : srcWidth,
+                    //videoHeight : cHeight,
+                    //previewUrl : previewUrl,
+                    //fullUrl : fullUrl
+                });
             }
 
-        } catch (err) {
+        } 
+        catch (err) 
+        {
+            alert(err);
             console.log('Error: ' + err);
         }
 

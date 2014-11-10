@@ -11,6 +11,7 @@
 Ext.Loader.addClassPathMappings({
   "Ext": "touch/src",
   "Ext-more": "touch/src/core/Ext-more.js",
+  "Ext.Boot": ".sencha/app/Boot.js",
   "Ext.DomHelper": "touch/src/dom/Helper.js",
   "Ext.DomQuery": "touch/src/dom/Query.js",
   "Ext.Element-alignment": "touch/src/dom/Element.alignment.js",

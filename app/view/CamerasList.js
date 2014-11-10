@@ -17,13 +17,6 @@ Ext.define('netcam.view.CamerasList', {
             {
                 jsonGetCameras(null);
             }
-            /*
-            ,
-            deactivate: function(newScreen, parent, oldScreen)
-            {
-                console.log('CameraList View deactivated.');
-            }
-            */
         },
         items:
             [{
