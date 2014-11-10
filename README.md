@@ -1,5 +1,5 @@
-Netcam Studio Sencha Client
-===================
+Netcam Studio Mobile (Sencha Version)
+=====================================
 
 **Introduction:**
 
@@ -10,6 +10,7 @@ For publishing it is wrapped using PhoneGap however it doesn't use any of the de
 In order to allow you to customize the client and add features by yourself, our Client are available on Github under GPL license.
 
 **Build instructions:**
+- Install Cordova 4.0.0
 - Put Sencha Touch 2.4.1 in the touch folder (not included)
 - Run 'sencha app build package' in order to compile / minify the application (so that it can be packaged with Phonegap)
 
